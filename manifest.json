@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "MCQ Solver Lens",
+  "version": "1.0",
+  "description": "Solve MCQs by selecting text regions on page, powered by AI",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "MCQ Solver Lens"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["tesseract.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
